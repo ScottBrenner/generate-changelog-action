@@ -1,12 +1,12 @@
-name: 'Container Action Template'
-description: 'Get started with Container actions'
-author: 'GitHub'
-inputs: 
-  myInput:
-    description: 'Input to use'
-    default: 'world'
+name: 'generate-changelog-action'
+description: 'GitHub Action for lob/generate-changelog'
+author: 'Scott Brenner'
+outputs:
+  changelog:
+    description: 'Generate changelog'
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.myInput }}
+branding:
+  icon: 'edit'
+  color: 'gray-dark'
