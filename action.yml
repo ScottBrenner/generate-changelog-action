@@ -1,0 +1,12 @@
+name: 'generate-changelog-action'
+description: 'GitHub Action for lob/generate-changelog'
+author: 'Scott Brenner'
+outputs:
+  changelog:
+    description: 'Generate changelog'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  icon: 'edit'
+  color: 'gray-dark'
