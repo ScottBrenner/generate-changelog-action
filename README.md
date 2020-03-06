@@ -42,6 +42,9 @@ jobs:
           prerelease: false
 ```
 
+The above workflow will create a release that looks like:
+![](release.png)
+
 For more information, see [actions/create-release: Usage](https://github.com/actions/create-release#usage) and [lob/generate-changelog: Usage](https://github.com/lob/generate-changelog#usage)
 
 _Created during the GitHub Actions Hackathon 2020._
