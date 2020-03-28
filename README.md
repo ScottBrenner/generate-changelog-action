@@ -1,6 +1,8 @@
 # generate-changelog-action
 
-GitHub Action for [lob/generate-changelog](https://github.com/lob/generate-changelog/). Intended to be used with [actions/create-release](https://github.com/actions/create-release) as follows:
+GitHub Action for [lob/generate-changelog](https://github.com/lob/generate-changelog/). Intended to be used with [actions/create-release](https://github.com/actions/create-release).
+
+**Note:** Per https://github.com/lob/generate-changelog/issues/38#issuecomment-362726723, your repository must contain a `package.json` file.
 
 ### Example workflow - create a release
 Extends [actions/create-release: Example workflow - create a release](https://github.com/actions/create-release#example-workflow---create-a-release) to generate changelog from git commits and use it as the body for the GitHub release.
