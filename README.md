@@ -4,6 +4,8 @@ GitHub Action for [lob/generate-changelog](https://github.com/lob/generate-chang
 
 **Note:** Per https://github.com/lob/generate-changelog/issues/38#issuecomment-362726723, your repository must contain a `package.json` file.
 
+Created during the GitHub Actions Hackathon 2020 and [selected as one of the winning projects!](https://docs.google.com/spreadsheets/d/1YL6mjJXGt3-75GejQCubsOvWwtYcGaqbJA7msnsh7Tg/edit#gid=0&range=A100:C100)
+
 ### Example workflow - create a release
 Extends [actions/create-release: Example workflow - create a release](https://github.com/actions/create-release#example-workflow---create-a-release) to generate changelog from git commits and use it as the body for the GitHub release.
 
@@ -49,4 +51,3 @@ The above workflow will create a release that looks like:
 
 For more information, see [actions/create-release: Usage](https://github.com/actions/create-release#usage) and [lob/generate-changelog: Usage](https://github.com/lob/generate-changelog#usage)
 
-_Created during the GitHub Actions Hackathon 2020._
