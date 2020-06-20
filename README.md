@@ -47,7 +47,7 @@ jobs:
 ```
 
 The above workflow will create a release that looks like:
-![](release.png)
+![Release](release.png)
 
 For more information, see [actions/create-release: Usage](https://github.com/actions/create-release#usage) and [lob/generate-changelog: Usage](https://github.com/lob/generate-changelog#usage)
 
