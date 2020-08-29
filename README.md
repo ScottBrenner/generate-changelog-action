@@ -27,7 +27,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - name: changelog
+      - name: Changelog
         uses: scottbrenner/generate-changelog-action@master
         id: Changelog
         env:
