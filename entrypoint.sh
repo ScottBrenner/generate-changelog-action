@@ -2,7 +2,8 @@
 
 git clone --quiet https://github.com/$REPO &> /dev/null
 
-changelog=$(generate-changelog $* --file -)
+tag=$(git tag --sort version:refname | tail -n 2 | head -n 1)
+changelog=$(generate-changelog -t "$tag" --file -)
 
 echo $changelog
 
