@@ -2,8 +2,8 @@
 
 git clone --quiet https://github.com/$REPO &> /dev/null
 
-if [ "$1" && "$1" != "package.json" ]; then
-  cp $1 package.json
+if [ "$1" ] && [ "$1" != "package.json" ]; then
+  cp "$1" package.json
 fi
 
 tag=$(git tag --sort version:refname | tail -n 2 | head -n 1)
