@@ -49,5 +49,17 @@ jobs:
 The above workflow will create a release that looks like:
 ![Release](release.png)
 
+If your `package.json` isn't available in root, you can pass the directory of the `package.json`:
+
+```yaml
+      - name: Changelog
+        uses: scottbrenner/generate-changelog-action@master
+        id: Changelog
+        env:
+          REPO: ${{ github.repository }}
+        with:
+          package-dir: 'root/to/my/package.json'
+```
+
 For more information, see [actions/create-release: Usage](https://github.com/actions/create-release#usage) and [lob/generate-changelog: Usage](https://github.com/lob/generate-changelog#usage)
 
