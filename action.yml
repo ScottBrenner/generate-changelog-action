@@ -12,6 +12,8 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  args:
+    - ${{ inputs.package-dir }}
 branding:
   icon: 'edit'
   color: 'gray-dark'
