@@ -6,7 +6,7 @@ outputs:
     description: 'Generate changelog'
 inputs:
   package-dir:
-    description: 'The path for the package.json if it's not in root'
+    description: 'The path for the package.json if it is not in root'
     required: false
     default: 'package.json'
 runs:
