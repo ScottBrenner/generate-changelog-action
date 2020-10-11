@@ -15,7 +15,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag generate-changelog-action:$(date +%s)
+      run: docker build . --file Dockerfile --tag generate-changelog-action
+    
+    - name: Docker run
+      run: docker run --entrypoint generate-changelog generate-changelog-action --version
 
   lint:
     # Name the Job
