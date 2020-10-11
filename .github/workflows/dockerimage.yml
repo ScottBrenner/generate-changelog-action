@@ -23,7 +23,7 @@ jobs:
       run: docker run --entrypoint generate-changelog generate-changelog-action --version
 
     - name: Test generating changelog
-      run: docker run --entrypoint ls generate-changelog-action
+      run: docker run generate-changelog-action
       env:
         REPO: ${{ github.repository }}
 
