@@ -24,6 +24,8 @@ jobs:
 
     - name: Test generating changelog
       run: docker run generate-changelog-action
+      env:
+        REPO: ${{ github.repository }}
 
   lint:
     # Name the Job
