@@ -2,6 +2,10 @@
 
 git clone --quiet https://github.com/$REPO &> /dev/null
 
+if [ $REPO = "ScottBrenner/generate-changelog-action" ]; then
+  cd generate-changelog-action
+fi
+
 if [ "$1" ] && [ "$1" != "package.json" ]; then
   cp "$1" package.json
 fi
