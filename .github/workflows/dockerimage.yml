@@ -20,6 +20,9 @@ jobs:
     - name: Docker run
       run: docker run --entrypoint generate-changelog generate-changelog-action --version
 
+    - name: Test generating changelog
+      run: docker run -e REPO=${{ github.repository }} generate-changelog-action
+
   lint:
     # Name the Job
     name: Lint Code Base
