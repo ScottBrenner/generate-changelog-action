@@ -1,9 +1,10 @@
 #!/bin/sh -l
+# shellcheck disable=SC2039
 
-git clone --quiet https://github.com/$REPO &> /dev/null
+git clone --quiet https://github.com/"$REPO"
 
-if [ "$REPO" == "ScottBrenner/generate-changelog-action" ]; then
-  cd generate-changelog-action
+if [ "$REPO" = "ScottBrenner/generate-changelog-action" ]; then
+  cd generate-changelog-action || exit
 fi
 
 if [ "$1" ] && [ "$1" != "package.json" ]; then
@@ -17,6 +18,6 @@ changelog="${changelog//'%'/'%25'}"
 changelog="${changelog//$'\n'/'%0A'}"
 changelog="${changelog//$'\r'/'%0D'}"
 
-echo $changelog
+echo "$changelog"
 
 echo "::set-output name=changelog::$changelog"
