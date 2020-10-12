@@ -17,6 +17,6 @@ changelog="${changelog//'%'/'%25'}"
 changelog="${changelog//$'\n'/'%0A'}"
 changelog="${changelog//$'\r'/'%0D'}"
 
-echo $changelog
+echo "$changelog"
 
 echo "::set-output name=changelog::$changelog"
