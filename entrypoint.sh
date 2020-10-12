@@ -1,8 +1,6 @@
 #!/bin/sh -l
 
-git clone --quiet https://github.com/$REPO
-
-ls
+git clone --quiet https://github.com/$REPO &> /dev/null
 
 if [ "$REPO" == "ScottBrenner/generate-changelog-action" ]; then
   cd generate-changelog-action
