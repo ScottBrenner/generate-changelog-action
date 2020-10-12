@@ -1,6 +1,6 @@
 #!/bin/sh -l
 
-git clone --quiet https://github.com/$REPO &> /dev/null
+git clone --quiet https://github.com/$REPO
 
 ls
 
