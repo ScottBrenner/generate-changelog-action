@@ -2,7 +2,7 @@
 
 git clone --quiet https://github.com/$REPO &> /dev/null
 
-if [ $REPO = "ScottBrenner/generate-changelog-action" ]; then
+if [ "$REPO" = "ScottBrenner/generate-changelog-action" ]; then
   cd generate-changelog-action
 fi
 
