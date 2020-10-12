@@ -1,4 +1,5 @@
 #!/bin/sh -l
+# shellcheck disable=SC3000-SC4000
 
 git clone --quiet https://github.com/"$REPO"
 
