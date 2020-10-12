@@ -1,6 +1,5 @@
 #!/bin/sh -l
-# shellcheck disable=SC3060
-# shellcheck disable=SC3003
+# shellcheck disable=SC2039
 
 git clone --quiet https://github.com/"$REPO"
 
