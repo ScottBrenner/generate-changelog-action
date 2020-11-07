@@ -6,9 +6,12 @@ on:
   pull_request:
     branches: [ master ]
 
+env:
+  IMAGE_NAME: generate-changelog-action
+
 jobs:
 
-  build:
+  test:
 
     runs-on: ubuntu-latest
 
@@ -46,3 +49,37 @@ jobs:
         uses: docker://github/super-linter:v2.2.0
         env:
           VALIDATE_ALL_CODEBASE: true
+
+  # Push image to GitHub Packages.
+  # See also https://docs.docker.com/docker-hub/builds/
+  push:
+    # Ensure test job passes before pushing image.
+    needs: test
+
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build image
+        run: docker build . --file Dockerfile --tag $IMAGE_NAME
+
+      - name: Log into GitHub Container Registry
+        run: echo "${{ secrets.CHANGELOG_CR_PAT }}" | docker login https://ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Push image to GitHub Container Registry
+        run: |
+          IMAGE_ID=ghcr.io/${{ github.repository_owner }}/$IMAGE_NAME
+          # Change all uppercase to lowercase
+          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+          SHA="${{ github.sha }}"
+          # Strip git ref prefix from version
+          REF=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+          echo IMAGE_ID=$IMAGE_ID
+          echo SHA=$SHA
+          echo REF=$REF
+          docker tag $IMAGE_NAME $IMAGE_ID:$SHA
+          docker tag $IMAGE_NAME $IMAGE_ID:$REF
+          docker push $IMAGE_ID:$SHA
+          docker push $IMAGE_ID:$REF
