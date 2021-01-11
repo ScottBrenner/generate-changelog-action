@@ -30,8 +30,6 @@ jobs:
       - name: Changelog
         uses: scottbrenner/generate-changelog-action@master
         id: Changelog
-        env:
-          REPO: ${{ github.repository }}
       - name: Create Release
         id: create_release
         uses: actions/create-release@latest
@@ -55,8 +53,6 @@ If your `package.json` isn't available in root, you can pass the directory of th
       - name: Changelog
         uses: scottbrenner/generate-changelog-action@master
         id: Changelog
-        env:
-          REPO: ${{ github.repository }}
         with:
           package-dir: 'root/to/my/package.json'
 ```
