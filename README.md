@@ -57,6 +57,18 @@ If your `package.json` isn't available in root, you can pass the directory of th
           package-dir: 'root/to/my/package.json'
 ```
 
+If your use case does not need to generate changelog from latest and latest-1 tags, you can pass the custom flags. An example is when your release tag on git is generated after the changelog so you must use something like _git log v1..HEAD_ --oneline:
+
+```yaml
+      - name: Changelog
+        uses: scottbrenner/generate-changelog-action@master
+        id: Changelog
+        with:
+          package-dir: 'root/to/my/package.json'
+          from-tag: v1.0
+          to-tag: HEAD
+```
+
 For more information, see [actions/create-release: Usage](https://github.com/actions/create-release#usage) and [lob/generate-changelog: Usage](https://github.com/lob/generate-changelog#usage)
 
 
