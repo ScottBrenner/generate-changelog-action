@@ -59,3 +59,9 @@ If your `package.json` isn't available in root, you can pass the directory of th
 
 For more information, see [actions/create-release: Usage](https://github.com/actions/create-release#usage) and [lob/generate-changelog: Usage](https://github.com/lob/generate-changelog#usage)
 
+
+| Property                  | Default       | Description                                                                                                                   |
+| ------------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| package-dir               | package.json  | The path for the package.json if it is not in root                                                                            |
+| from-tag                  | "last tag"    | The tag to generate changelog from. If not set, fallbacks to git last tag -1. Ex.: v1.0                                       |
+| to-tag                    | "current tag" | The tag to generate changelog up to. If not set, fallbacks to git last tag.   Ex.: v2.0                                       |
