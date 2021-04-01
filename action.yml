@@ -9,11 +9,22 @@ inputs:
     description: 'The path for the package.json if it is not in root'
     required: false
     default: 'package.json'
+  from-tag:
+    description: 'The tag to generate changelog from'
+    required: false
+    default: ''
+  to-tag:
+    description: 'The tag to generate changelog up to'
+    required: false
+    default: ''        
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.package-dir }}
+  env:
+    FROM_TAG: ${{ inputs.from-tag }}
+    TO_TAG: ${{ inputs.to-tag }}
 branding:
   icon: 'edit'
   color: 'gray-dark'
