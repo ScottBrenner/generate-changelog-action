@@ -31,7 +31,7 @@ else
 fi
 
 if [ -z "$TYPE" ]; then
-  echo "No type passed. Fallbacking to unset"
+  echo "No type passed. Fallbacking to unset."
 else
   echo "Type detected. Using its value."
   case $TYPE in
@@ -47,7 +47,14 @@ else
   esac
 fi
 
-changelog=$(generate-changelog "$changelog_type" -t "$previous_tag..$new_tag" --file -)
+if [ -z "$EXCLUDE" ]; then
+  echo "No commit types selected to exclude. Fallbacking to unset."
+else
+  echo "Commit types selected to exclude. Using its value."
+  exclude_types="--exclude $EXCLUDE"
+fi
+
+changelog=$(generate-changelog "$changelog_type" -t "$previous_tag..$new_tag" "$exclude_types" --file -)
 
 changelog="${changelog//'%'/'%25'}"
 changelog="${changelog//$'\n'/'%0A'}"

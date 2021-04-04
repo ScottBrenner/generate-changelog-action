@@ -20,7 +20,11 @@ inputs:
   type:
     description: 'Type of changelog: patch, minor, or major'
     required: false
-    default: '' 
+    default: ''
+  exclude:
+    description: 'Exclude selected commit types (comma separated)'
+    required: false
+    default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -29,6 +33,7 @@ runs:
     FROM_TAG: ${{ inputs.from-tag }}
     TO_TAG: ${{ inputs.to-tag }}
     TYPE: ${{ inputs.type }}
+    EXCLUDE: ${{ inputs.exclude }}
 branding:
   icon: 'edit'
   color: 'gray-dark'
