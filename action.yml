@@ -20,11 +20,10 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.package-dir }}
   env:
     FROM_TAG: ${{ inputs.from-tag }}
     TO_TAG: ${{ inputs.to-tag }}
+    PACKAGE_DIR: ${{ inputs.package-dir }}
 branding:
   icon: 'edit'
   color: 'gray-dark'

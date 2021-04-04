@@ -7,8 +7,11 @@ if [ "$REPO" = "ScottBrenner/generate-changelog-action" ]; then
   cd generate-changelog-action || exit
 fi
 
-if [ "$1" ] && [ "$1" != "package.json" ]; then
-  cp "$1" package.json
+if [ -z "$PACKAGE_DIR" ]; then
+  echo "No path for the package.json passed. Fallbacking to root directory."
+else
+  echo "package-dir detected. Using it's value."
+  cp $PACKAGE_DIR package.json
 fi
 
 if [ -z "$FROM_TAG" ]; then
