@@ -30,7 +30,24 @@ else
   new_tag=$TO_TAG
 fi
 
-changelog=$(generate-changelog -t "$previous_tag..$new_tag" --file -)
+if [ -z "$TYPE" ]; then
+  echo "No type passed. Fallbacking to unset"
+else
+  echo "Type detected. Using its value."
+  case $TYPE in
+    patch)
+     changelog_type="--patch"
+     ;;
+    minor)
+     changelog_type="--minor"
+     ;;
+    patch)
+     changelog_type="--major"
+     ;;
+  esac
+fi
+
+changelog=$(generate-changelog "$changelog_type" -t "$previous_tag..$new_tag" --file -)
 
 changelog="${changelog//'%'/'%25'}"
 changelog="${changelog//$'\n'/'%0A'}"

@@ -17,13 +17,18 @@ inputs:
     description: 'The tag to generate changelog up to'
     required: false
     default: ''
+  type:
+    description: 'Type of changelog: patch, minor, or major'
+    required: false
+    default: '' 
 runs:
   using: 'docker'
   image: 'Dockerfile'
   env:
+    PACKAGE_DIR: ${{ inputs.package-dir }}
     FROM_TAG: ${{ inputs.from-tag }}
     TO_TAG: ${{ inputs.to-tag }}
-    PACKAGE_DIR: ${{ inputs.package-dir }}
+    TYPE: ${{ inputs.type }}
 branding:
   icon: 'edit'
   color: 'gray-dark'
