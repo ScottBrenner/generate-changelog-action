@@ -58,10 +58,17 @@ if [ -z "$ALLOW_UKNOWN" ]; then
   echo "Unknown commit types not allowed."
 else
   echo "Allowing unknown commit types."
-  unknown_commits="--allow-unknown "
+  unknown_commits="--allow-unknown"
 fi
 
-changelog=$(generate-changelog "$changelog_type" -t "$previous_tag..$new_tag" "$exclude_types" "$unknown_commits" --file -)
+if [ -z "$REPO_URL" ]; then
+  echo "Repo URL for commit links not specified. Fallbacking to checking the package.json."
+else
+  echo "Repo URL for commit links specified. Using its value."
+  commit_links="--repo-url $REPO_URL"
+fi
+
+changelog=$(generate-changelog "$changelog_type" -t "$previous_tag..$new_tag" "$exclude_types" "$unknown_commits" "$commit_links" --file -)
 
 changelog="${changelog//'%'/'%25'}"
 changelog="${changelog//$'\n'/'%0A'}"
