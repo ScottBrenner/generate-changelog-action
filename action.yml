@@ -16,7 +16,7 @@ inputs:
   to-tag:
     description: 'The tag to generate changelog up to'
     required: false
-    default: ''        
+    default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'
