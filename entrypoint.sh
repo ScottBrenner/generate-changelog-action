@@ -3,6 +3,7 @@
 
 # For Docker Image CI test job
 if [ "$REPO" = "ScottBrenner/generate-changelog-action" ]; then
+  git clone --quiet https://github.com/"$REPO"
   cd generate-changelog-action || exit
 fi
 
