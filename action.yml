@@ -25,6 +25,10 @@ inputs:
     description: 'Exclude selected commit types (comma separated)'
     required: false
     default: ''
+  allow-unknown:
+    description: 'Allow unknown commit types'
+    required: false
+    default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -34,6 +38,7 @@ runs:
     TO_TAG: ${{ inputs.to-tag }}
     TYPE: ${{ inputs.type }}
     EXCLUDE: ${{ inputs.exclude }}
+    ALLOW_UNKNOWN: ${{ inputs.allow-unknown }}
 branding:
   icon: 'edit'
   color: 'gray-dark'

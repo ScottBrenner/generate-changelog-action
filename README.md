@@ -79,3 +79,4 @@ For more information, see [actions/create-release: Usage](https://github.com/act
 | to-tag                    | "current tag" | The tag to generate changelog up to. If not set, fallbacks to git last tag.   Ex.: v2.0                                       |
 | type                      | Unset         | The type of changelog to generate: patch, minor, or major. If not set, fallbacks to unset.                                    |
 | exclude                   | Unset         | Exclude selected commit types (comma separated). If not set, fallbacks to unset.                                              |
+| allow-unknown             | Unset         | Allow unknown commit types. If not set, fallbacks to unset.                                                                   |

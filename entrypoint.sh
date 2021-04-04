@@ -54,7 +54,14 @@ else
   exclude_types="--exclude $EXCLUDE"
 fi
 
-changelog=$(generate-changelog "$changelog_type" -t "$previous_tag..$new_tag" "$exclude_types" --file -)
+if [ -z "$ALLOW_UKNOWN" ]; then
+  echo "Unknown commit types not allowed."
+else
+  echo "Allowing unknown commit types."
+  unknown_commits="--allow-unknown "
+fi
+
+changelog=$(generate-changelog "$changelog_type" -t "$previous_tag..$new_tag" "$exclude_types" "$unknown_commits" --file -)
 
 changelog="${changelog//'%'/'%25'}"
 changelog="${changelog//$'\n'/'%0A'}"
