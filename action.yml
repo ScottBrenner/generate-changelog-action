@@ -29,10 +29,6 @@ inputs:
     description: 'Allow unknown commit types'
     required: false
     default: ''
-  repo-url:
-    description: 'Specify the repo URL for commit links, defaults to checking the package.json'
-    required: false
-    default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -43,7 +39,6 @@ runs:
     TYPE: ${{ inputs.type }}
     EXCLUDE: ${{ inputs.exclude }}
     ALLOW_UNKNOWN: ${{ inputs.allow-unknown }}
-    REPO_URL: ${{ inputs.repo-url }}
 branding:
   icon: 'edit'
   color: 'gray-dark'

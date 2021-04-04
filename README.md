@@ -80,4 +80,3 @@ For more information, see [actions/create-release: Usage](https://github.com/act
 | type                      | Unset         | The type of changelog to generate: patch, minor, or major. If not set, fallbacks to unset.                                    |
 | exclude                   | Unset         | Exclude selected commit types (comma separated). If not set, fallbacks to unset.                                              |
 | allow-unknown             | Unset         | Allow unknown commit types. If not set, fallbacks to unset.                                                                   |
-| repo-url                  | package.json  | Specify the repo URL for commit links, defaults to checking the package.json                                                  |
