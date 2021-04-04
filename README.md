@@ -77,3 +77,6 @@ For more information, see [actions/create-release: Usage](https://github.com/act
 | package-dir               | package.json  | The path for the package.json if it is not in root                                                                            |
 | from-tag                  | "last tag"    | The tag to generate changelog from. If not set, fallbacks to git last tag -1. Ex.: v1.0                                       |
 | to-tag                    | "current tag" | The tag to generate changelog up to. If not set, fallbacks to git last tag.   Ex.: v2.0                                       |
+| type                      | Unset         | The type of changelog to generate: patch, minor, or major. If not set, fallbacks to unset.                                    |
+| exclude                   | Unset         | Exclude selected commit types (comma separated). If not set, fallbacks to unset.                                              |
+| allow-unknown             | Unset         | Allow unknown commit types. If not set, fallbacks to unset.                                                                   |

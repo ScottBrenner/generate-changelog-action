@@ -16,15 +16,29 @@ inputs:
   to-tag:
     description: 'The tag to generate changelog up to'
     required: false
-    default: ''        
+    default: ''
+  type:
+    description: 'Type of changelog: patch, minor, or major'
+    required: false
+    default: ''
+  exclude:
+    description: 'Exclude selected commit types (comma separated)'
+    required: false
+    default: ''
+  allow-unknown:
+    description: 'Allow unknown commit types'
+    required: false
+    default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.package-dir }}
   env:
+    PACKAGE_DIR: ${{ inputs.package-dir }}
     FROM_TAG: ${{ inputs.from-tag }}
     TO_TAG: ${{ inputs.to-tag }}
+    TYPE: ${{ inputs.type }}
+    EXCLUDE: ${{ inputs.exclude }}
+    ALLOW_UNKNOWN: ${{ inputs.allow-unknown }}
 branding:
   icon: 'edit'
   color: 'gray-dark'
