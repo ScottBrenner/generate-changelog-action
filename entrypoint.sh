@@ -41,7 +41,7 @@ else
     minor)
      changelog_type="--minor"
      ;;
-    patch)
+    major)
      changelog_type="--major"
      ;;
   esac
