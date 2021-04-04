@@ -45,4 +45,4 @@ For more information, see [actions/create-release: Usage](https://github.com/act
 ## Example workflow - create a release
 See [this repository's release.yml](https://github.com/ScottBrenner/generate-changelog-action/blob/master/.github/workflows/release.yml) for an example workflow which extends [actions/create-release: Example workflow - create a release](https://github.com/actions/create-release#example-workflow---create-a-release) to generate a changelog from git commits and use it as the body for the GitHub release.
 
-This workflow automatically creates the releases - and changelogs - found in https://github.com/ScottBrenner/generate-changelog-action/releases.
+This workflow automatically creates [this repository's releases](https://github.com/ScottBrenner/generate-changelog-action/releases).
