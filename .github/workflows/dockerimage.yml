@@ -24,7 +24,7 @@ jobs:
       run: docker run --entrypoint generate-changelog generate-changelog-action --version
 
     - name: Test generating changelog
-      run: docker run -e repo-url="git+https://github.com/ScottBrenner/generate-changelog-action" generate-changelog-action
+      run: docker run -e REPO=${{ github.repository }} generate-changelog-action
 
   lint:
     # Name the Job
