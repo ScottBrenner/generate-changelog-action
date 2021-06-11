@@ -51,7 +51,7 @@ if [ -z "$EXCLUDE" ]; then
   echo "No commit types selected to exclude. Fallbacking to unset."
 else
   echo "Commit types selected to exclude. Using its value."
-  exclude_types="--exclude $EXCLUDE"
+  exclude_types="--exclude "$EXCLUDE""
 fi
 
 if [ -z "$ALLOW_UKNOWN" ]; then
@@ -61,7 +61,7 @@ else
   unknown_commits="--allow-unknown "
 fi
 
-changelog=$(generate-changelog "$changelog_type" -t "$previous_tag..$new_tag" "$exclude_types" "$unknown_commits" --file -)
+changelog=$(generate-changelog "$changelog_type" -t "$previous_tag..$new_tag" $exclude_types "$unknown_commits" --file -)
 
 changelog="${changelog//'%'/'%25'}"
 changelog="${changelog//$'\n'/'%0A'}"
