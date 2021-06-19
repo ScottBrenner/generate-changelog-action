@@ -61,7 +61,7 @@ else
   unknown_commits="--allow-unknown "
 fi
 
-changelog=$(generate-changelog "$changelog_type" -t "$previous_tag..$new_tag" ${exclude_types} "$unknown_commits" --file -)
+changelog=$(generate-changelog "$changelog_type" -t "$previous_tag..$new_tag" ${exclude_types} "$unknown_commits" --file -) # shellcheck disable=SC2086
 
 changelog="${changelog//'%'/'%25'}"
 changelog="${changelog//$'\n'/'%0A'}"
