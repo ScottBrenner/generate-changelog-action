@@ -54,7 +54,7 @@ else
   exclude_types="--exclude $EXCLUDE"
 fi
 
-if [ -z "$ALLOW_UKNOWN" ]; then
+if [ -z "$ALLOW_UNKNOWN" ]; then
   echo "Unknown commit types not allowed."
 else
   echo "Allowing unknown commit types."
