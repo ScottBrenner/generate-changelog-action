@@ -1,3 +1,8 @@
+### Project Archived
+This project has been archived and is no longer actively maintaned, but will continue to function.
+
+➡️ [GitHub is now able to automatically generate release notes for your GitHub releases](https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes)
+
 # generate-changelog-action
 
 GitHub Action for [lob/generate-changelog](https://github.com/lob/generate-changelog/). Intended to be used with [actions/create-release](https://github.com/actions/create-release).
